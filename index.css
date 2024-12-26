@@ -7,6 +7,7 @@ Link to Figma: https://scrimba.com/links/santa-saas-figma
     --dark-red: #470000;
     --grey: #969696;
     --grey-black: #343434;
+    --medium-red: #8F0002;
 }
 
 body {
@@ -14,7 +15,8 @@ body {
     min-width: 1000px;
     margin: auto;
     font-family: "Be Vietnam Pro", sans-serif;
-}
+    background-color: #F5F5F5;
+  }
 
 nav {
     /* background-color: var(--red); */
@@ -255,79 +257,132 @@ header>img {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #pricing>h2 {
     color: var(--dark-red);
     font-size: 52px;
-    margin-top: 125px;
-    margin-bottom: 39px;
-}
-
-#pricing>p {
-    color: var(--grey);
-    font-size: 14px;
-    margin-bottom: 48px;
-}
-
-#pricing>div {
-    background: #8F0002;
-    border-radius: 14px;
-    width: 384px;
-    height: 727px;
-    padding: 50px 24px;
-    text-align: center;
-}
-
-#pricing>div>h3 {
-    color: #fff;
-    font-size: 24px;
-    margin-bottom: 24px;
-}
-
-#pricing>div>p {
-    color: #fff;
-    margin-bottom: 37px;
-}
-
-#pricing>div>p:nth-child(3) {
-    color: #fff;
-    font-size: 56px;
-    margin-bottom: 42px;
-}
-
-#pricing>div>p:nth-child(3)::after {
-    content: "/month";
-    font-size: 16px;
-    color: var(--grey);
-    font-weight: bold;
-}
-
-#pricing>div>button{
-    cursor: pointer;
-    padding: 12px 24px;
-    color: #8F0002;
-    font-weight: bold;
-    border-radius: 8px;
-    border: none;
+    margin: 0 0 30px 0;
+    display: inline-block;
     width: 100%;
-    text-transform: capitalize;
+    margin-left: 120px;
+    margin-top: 32px;
 }
 
-#pricing>div>ul{
+.pricing-option {
+  color: #fff;
+  background-color: var(--medium-red);
+  margin: 24px;
+  border-radius: 14px;
+  padding: 44px;
+  text-align: center;
+  width: 284px;
+  min-height: 39.1875em;
+}
+
+.pricing-option>.price {
+  font-size:64px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.pricing-option>.price::after {
+  content: "/month";
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--grey)
+}
+
+.pricing-option:first-of-type {
+  color: var(--dark-red);
+  background-color: #fff;
+}
+
+.pricing-option:last-of-type {
+  color: var(--dark-red);
+  background-color: #fff;
+}
+
+.pricing-option>h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.pricing-option>h2 {
+    font-size: 64px;
+    margin: 0;
+}
+
+.pricing-option>p:first-of-type {
+    font-size: 14px;
+    color: var(--grey)
+}
+
+.pricing-option>ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    margin-top: 48px;     
+    gap: 10px;
 }
 
-#pricing>div>ul>li{
+.pricing-option>ul:first-of-type {
+    color: var(--dark-red);
+  }
+
+.pricing-option>button {
+    padding: 12px 45px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    color:#8F0002;
+    background-color: #fff;
+}
+
+.pricing-option>.buy.low {
+    background-color: var(--medium-red);
+    color: #fff
+}
+
+.pricing-option>.buy.high {
+  background-color: var(--medium-red);
+  color: #fff
+}
+
+.pricing-option>ul>li {
     margin: 0;
     padding: 0;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.pricing-option>.medium-features>li {
+  color: #fff;
+}
+.pricing-option>.medium-features>li::before {
+  content: "✓";
+  color: #fff;
+}
+
+.pricing-option>.low-features>li:nth-child(6) {
+    text-decoration: line-through; 
+}
+
+.pricing-option>.low-features>li:nth-child(7) {
+  text-decoration: line-through; 
+}
+
+.pricing-option>ul>li::before {
+    content: "✓";
+    color: var(--red);
 }
 
 #customer{
