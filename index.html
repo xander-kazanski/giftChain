@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GiftChain.ai - The revolutionary AI-powered blockchain platform for effortless gift management and delivery optimization">
+    <meta name="theme-color" content="#8F0002">
     <title>GiftChain.ai - AI-Powered Blockchain for Effortless Gift Management</title>
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css"/>
+    <script src="main.js" defer></script>
 </head>
 <body>
 <header>
     <nav>
         <div class="logo">
-            <img src="images/logo.svg" alt="GiftChain.ai logo">
+            <img src="images/logo.svg" alt="GiftChain.ai logo" width="32" height="32">
             <span>GiftChain.ai</span>
         </div>
-        <ul>
+        <button class="mobile-menu" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
             <li><a href="#product">Product</a></li>
             <li><a href="#solution">Solution</a></li>
             <li><a href="#customer">Customer</a></li>
@@ -35,7 +44,15 @@
         <button class="try" aria-label="Try GiftChain.ai for free">Try for free</button>
         <button class="demo" aria-label="Watch a demo of GiftChain.ai">Watch a demo</button>
     </div>
-    <img src="images/dashboard.png" alt="Dashboard screenshot of GiftChain.ai">
+    <div class="dashboard-container">
+        <img src="images/dashboard.png" alt="Dashboard screenshot of GiftChain.ai" 
+            loading="lazy" class="dashboard-image"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="dashboard-fallback">
+            <p>🎄 Interactive Dashboard Preview</p>
+            <p>Loading preview...</p>
+        </div>
+    </div>
 </header>
 <main>
     <section id="product">
@@ -73,9 +90,9 @@
             <h2>Say goodbye to gift chaos this year</h2>
             <p>No need to worry about your gift being lost or delivered to the wrong child. We’ll handle every single one.</p>
             <p class="reviews">
-                <img src="./images/elf-1.png" />
-                <img src="./images/elf-2.png" />
-                <img src="./images/elf-3.png" />
+                <img src="./images/elf-1.png" alt="Happy elf customer 1" width="35" height="35" loading="lazy" />
+                <img src="./images/elf-2.png" alt="Happy elf customer 2" width="35" height="35" loading="lazy" />
+                <img src="./images/elf-3.png" alt="Happy elf customer 3" width="35" height="35" loading="lazy" />
                 More than 10,000 elves have tried GiftChain.ai!</p>
             <button class="free-try" aria-label="Try GiftChain.ai for free">Try for free</button>
         </div>
@@ -84,83 +101,100 @@
 
     <section id="pricing">
         <h2>Pricing</h2>
-        <div class="pricing-option">
-            <h3>Low Pricing</h3>
-            <p>Perfect for local Santas just starting up their operations.</p>
-            <p class="price low">$5</p>
-            <button class="buy low" aria-label="Buy low pricing plan">Buy now</button>
-            <ul class="low-features">
-                <li>5 collections</li>
-                <li>Worldwide accessbility </li>
-                <li>25 automation actions</li>
-                <li>Access all features</li>
-                <li>24 hours support</li>
-                <li>Sync accross devices</li>
-                <li>Share with more 5 users</li>
-                
-            </ul>
+        <div class="pricing-container">
+            <div class="pricing-option starter">
+                <div class="plan-tag">Starter</div>
+                <h3>Basic Plan</h3>
+                <p>Perfect for local Santas just starting their operations</p>
+                <p class="price">$29</p>
+                <button class="buy low" aria-label="Buy basic pricing plan">Get Started</button>
+                <ul class="features">
+                    <li>100 gift deliveries/month</li>
+                    <li>Basic AI gift suggestions</li>
+                    <li>Standard blockchain tracking</li>
+                    <li>Email support</li>
+                    <li>Basic analytics</li>
+                    <li class="disabled">Advanced route optimization</li>
+                    <li class="disabled">Multi-user access</li>
+                </ul>
+            </div>
+            <div class="pricing-option popular">
+                <div class="plan-tag">Most Popular</div>
+                <h3>Professional</h3>
+                <p>For growing gift delivery operations</p>
+                <p class="price">$99</p>
+                <button class="buy medium" aria-label="Buy professional pricing plan">Get Started</button>
+                <ul class="features">
+                    <li>Unlimited deliveries</li>
+                    <li>Advanced AI suggestions</li>
+                    <li>Priority blockchain validation</li>
+                    <li>24/7 priority support</li>
+                    <li>Advanced analytics</li>
+                    <li>Smart route optimization</li>
+                    <li>Up to 10 team members</li>
+                </ul>
+            </div>
+            <div class="pricing-option enterprise">
+                <div class="plan-tag">Enterprise</div>
+                <h3>Global Santa</h3>
+                <p>For large-scale gift operations worldwide</p>
+                <p class="price">$299</p>
+                <button class="buy high" aria-label="Buy enterprise pricing plan">Contact Sales</button>
+                <ul class="features">
+                    <li>Unlimited everything</li>
+                    <li>Custom AI training</li>
+                    <li>Dedicated blockchain node</li>
+                    <li>Dedicated support team</li>
+                    <li>Custom analytics</li>
+                    <li>Global route optimization</li>
+                    <li>Unlimited team members</li>
+                </ul>
+            </div>
         </div>
-        <div class="pricing-option">
-          <h3>Medium Pricing</h3>
-          <p>Perfect for local Santas just starting up their operations.</p>
-          <p class="price medium">$5</p>
-          <button class="buy medium" aria-label="Buy medium pricing plan">Buy now</button>
-          <ul class="medium-features">
-              <li>5 collections</li>
-              <li>Worldwide accessbility </li>
-              <li>25 automation actions</li>
-              <li>Access all features</li>
-              <li>24 hours support</li>
-              <li>Sync accross devices</li>
-              <li>Share with more 5 users</li>
-              
-          </ul>
-      </div>
-      <div class="pricing-option">
-        <h3>High Pricing</h3>
-        <p>Perfect for local Santas just starting up their operations.</p>
-        <p class="price high">$5</p>
-        <button class="buy high" aria-label="Buy high pricing plan">Buy now</button>
-        <ul class="high-features">
-            <li>5 collections</li>
-            <li>Worldwide accessbility </li>
-            <li>25 automation actions</li>
-            <li>Access all features</li>
-            <li>24 hours support</li>
-            <li>Sync accross devices</li>
-            <li>Share with more 5 users</li>
-            
-        </ul>
-    </div>
     </section>
     <section id="customer">
         <h2>GiftChain is loved by users</h2>
-        <div>
-            <div>
-                <img src="images/elf-1.png" aria="Headshot of a customer">
-                <span>
-                    <h3>Holly Snowfield</h3>
-                    <p>Chief Toy Innovator</p>
-                </span>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="images/elf-1.png" alt="Holly Snowfield headshot" width="100" height="100" loading="lazy">
+                    <span>
+                        <h3>Holly Snowfield</h3>
+                        <p>Chief Toy Innovator</p>
+                    </span>
+                </div>
+                <blockquote>
+                    Before GiftChain.ai, I had to write the gifts in a book by hand. Now, simply spin up a child-specific smart contract, authorize my Elf Wallet with a 12-step SantaMask authentication, mint a behavior-driven NFT for each gift, wrap it in an IBFS hash, and sign the transaction with my cold storage Elf Vault.
+                    <p>⭐⭐⭐⭐⭐</p>
+                </blockquote>
             </div>
-            <blockquote>
-                Before GiftChain.ai, I had to write the gifts in a book by hand. Now, simply spin up a child-specific smart contract, authorize my Elf Wallet with a 12-step SantaMask authentication, mint a behavior-driven NFT for each gift, wrap it in an IBFS hash, and sign the transaction with my cold storage Elf Vault.
-                <p>⭐⭐⭐⭐⭐</p>
-            </blockquote>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="images/elf-2.png" alt="Tinker Bellworth headshot" width="100" height="100" loading="lazy">
+                    <span>
+                        <h3>Tinker Bellworth</h3>
+                        <p>Senior Gift Operations Manager</p>
+                    </span>
+                </div>
+                <blockquote>
+                    The AI-powered gift suggestions are incredibly accurate! It's like having a mind-reading machine that knows exactly what each child wants. The blockchain integration ensures perfect tracking and delivery. This is truly revolutionary for our gift-giving operations.
+                    <p>⭐⭐⭐⭐⭐</p>
+                </blockquote>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="images/elf-3.png" alt="Peppermint Sugarplum headshot" width="100" height="100" loading="lazy">
+                    <span>
+                        <h3>Peppermint Sugarplum</h3>
+                        <p>Blockchain Gift Architect</p>
+                    </span>
+                </div>
+                <blockquote>
+                    The decentralized nature of GiftChain.ai means no more lost presents or mixed-up deliveries. Our gift success rate has increased by 99.9%, and the remaining 0.1% was due to reindeer GPS malfunction, not the platform.
+                    <p>⭐⭐⭐⭐⭐</p>
+                </blockquote>
+            </div>
         </div>
-        <div>
-          <div>
-              <img src="images/elf-1.png" aria="Headshot of a customer">
-              <span>
-                  <h3>Holly Snowfield</h3>
-                  <p>Chief Toy Innovator</p>
-              </span>
-          </div>
-          <blockquote>
-              Before GiftChain.ai, I had to write the gifts in a book by hand. Now, simply spin up a child-specific smart contract, authorize my Elf Wallet with a 12-step SantaMask authentication, mint a behavior-driven NFT for each gift, wrap it in an IBFS hash, and sign the transaction with my cold storage Elf Vault.
-              <p>⭐⭐⭐⭐⭐</p>
-          </blockquote>
-      </div>
         
     </section>
 </main>

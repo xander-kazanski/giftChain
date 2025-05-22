@@ -12,11 +12,17 @@ Link to Figma: https://scrimba.com/links/santa-saas-figma
 
 body {
     max-width: 1440px;
-    min-width: 1000px;
     margin: auto;
     font-family: "Be Vietnam Pro", sans-serif;
     background-color: #F5F5F5;
+    padding: 0 1rem;
   }
+
+@media (max-width: 768px) {
+    body {
+        padding: 0 0.5rem;
+    }
+}
 
 nav {
     /* background-color: var(--red); */
@@ -270,28 +276,104 @@ header>img {
     margin-top: 32px;
 }
 
+.pricing-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
 .pricing-option {
-  color: #fff;
-  background-color: var(--medium-red);
-  margin: 24px;
-  border-radius: 14px;
-  padding: 44px;
-  text-align: center;
-  width: 284px;
-  min-height: 39.1875em;
+    position: relative;
+    width: 350px;
+    padding: 2rem;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.pricing-option>.price {
-  font-size:64px;
-  font-weight: bold;
-  margin: 0;
+.plan-tag {
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    background: var(--red);
+    color: white;
+    padding: 0.5rem 3rem;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.pricing-option>.price::after {
-  content: "/month";
-  font-size: 24px;
-  font-weight: normal;
-  color: var(--grey)
+.pricing-option.popular {
+    background: var(--medium-red);
+    color: white;
+    transform: scale(1.05);
+}
+
+.pricing-option.popular .features li::before {
+    color: white;
+}
+
+.pricing-option .features {
+    padding: 0;
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.pricing-option .features li {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pricing-option .features li::before {
+    content: "✓";
+    color: var(--medium-red);
+    font-weight: bold;
+}
+
+.pricing-option .features li.disabled {
+    color: var(--grey);
+    text-decoration: line-through;
+}
+
+.pricing-option .features li.disabled::before {
+    content: "×";
+    color: var(--grey);
+}
+
+.pricing-option .price {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 2rem 0;
+}
+
+.pricing-option .price::after {
+    content: "/mo";
+    font-size: 1rem;
+    color: var(--grey);
+}
+
+.pricing-option button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.pricing-option.popular button {
+    background: white;
+    color: var(--medium-red);
+}
+
+.pricing-option:not(.popular) button {
+    background: var(--medium-red);
+    color: white;
 }
 
 .pricing-option:first-of-type {
@@ -386,7 +468,8 @@ header>img {
 }
 
 #customer{
-    padding-left: 120px;
+    padding: 4rem 1rem;
+    background: linear-gradient(to bottom, #F5F5F5, #fff);
     display: flex;
     flex-direction: column;
 
@@ -396,40 +479,100 @@ header>img {
 #customer>h2{
     color: var(--dark-red);
     font-size: 40px;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
-#customer>div{
-        width: 384px;
-    height: 376px;
-    border: 2px solid #EAEAEA;
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.testimonial-card {
+    background: white;
     border-radius: 20px;
-    padding: 32px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#customer>div>div {
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(143, 0, 2, 0.1);
+}
+
+.testimonial-header {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-#customer>div>div>span>h3 {
+.testimonial-header img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--light-red);
+}
+
+.testimonial-header span {
+    flex: 1;
+}
+
+.testimonial-header h3 {
     color: var(--grey-black);
-    margin-bottom: 12px;
-}
-
-#customer>div>div>span>p{
-    color: var(--grey);
-    font-size: 14px;
     margin: 0;
+    font-size: 1.2rem;
 }
 
-#customer>div>div>img {
-    border-radius: 100%;
-    margin-right: 20px;
-}
-
-#customer>div>blockquote{
+.testimonial-header p {
     color: var(--grey);
-    margin: 24px 0 0 0;
-    line-height: 24px
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+.testimonial-card blockquote {
+    color: var(--grey);
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-card blockquote::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--light-red);
+    position: absolute;
+    left: -1rem;
+    top: -1rem;
+    opacity: 0.5;
+}
+
+.testimonial-card blockquote p {
+    margin-top: 1rem;
+    text-align: right;
+    color: var(--medium-red);
+}
+
+@media (max-width: 768px) {
+    .testimonials {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    #customer {
+        padding: 2rem 1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
 }
 
 footer{
@@ -488,4 +631,224 @@ footer>.links>ul>li{
 footer>.links>ul>li>a{
     text-decoration: none;
     color: var(--grey-black);
+}
+
+/* Mobile menu button */
+.mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Modern UI Enhancements */
+button {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-option {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pricing-option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(143, 0, 2, 0.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header > h1 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    header > img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    #product > div {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    #product > div > div {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    #solution {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    #solution > div > h2 {
+        font-size: 2rem;
+        margin: 1rem;
+        text-align: center;
+    }
+
+    #solution > div > p {
+        margin: 1rem;
+        text-align: center;
+    }
+
+    #solution > img {
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+
+    #pricing {
+        padding: 1rem;
+    }
+
+    #pricing > h2 {
+        margin: 1rem;
+        text-align: center;
+    }
+
+    .pricing-option {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    #customer {
+        padding: 1rem;
+    }
+
+    footer {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    footer > div {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* Loading animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pricing-option, #product > div > div, #customer > div {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+    animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Modern form styling */
+input, button {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1087px;
+    margin: 0 auto 115px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.dashboard-fallback {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, var(--red), var(--dark-red));
+}
+
+.dashboard-fallback p:first-child {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        margin: 2rem auto;
+        max-width: 100%;
+    }
+    
+    .dashboard-fallback {
+        min-height: 200px;
+    }
 }
