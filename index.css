@@ -187,8 +187,115 @@ header>img {
     height: 64px;
     background-color: var(--light-red);
     border-radius: 15px;
-    text-align: center;
-    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--medium-red);
+    stroke-width: 1.5;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .icon {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(143, 0, 2, 0.15);
+}
+
+.feature-card:hover .icon svg {
+    stroke-width: 2;
+    transform: scale(1.1);
+}
+
+.feature-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(143, 0, 2, 0.1);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    color: var(--grey-black);
+    margin: 0;
+}
+
+.feature-card p {
+    color: var(--grey);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.feature-card a {
+    color: var(--medium-red);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.feature-card a::after {
+    content: '→';
+    transition: transform 0.3s ease;
+}
+
+.feature-card a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--medium-red);
+    transition: width 0.3s ease;
+}
+
+.feature-card a:hover {
+    gap: 0.75rem;
+}
+
+.feature-card a:hover::after {
+    transform: translateX(3px);
+}
+
+.feature-card a:hover::before {
+    width: 100%;
 }
 
 #product>div>div>h3 {
@@ -498,6 +605,7 @@ header>img {
     padding: 2rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: fit-content;
 }
 
 .testimonial-card:hover {
@@ -542,16 +650,18 @@ header>img {
     margin: 0;
     font-style: italic;
     position: relative;
+    padding-left: 1rem;
 }
 
 .testimonial-card blockquote::before {
-    content: '"';
+    content: '❝';
     font-size: 3rem;
     color: var(--light-red);
     position: absolute;
-    left: -1rem;
+    left: -0.5rem;
     top: -1rem;
     opacity: 0.5;
+    font-style: normal;
 }
 
 .testimonial-card blockquote p {
@@ -572,6 +682,15 @@ header>img {
 
     .testimonial-card {
         padding: 1.5rem;
+    }
+
+    .testimonial-card blockquote {
+        font-size: 0.95rem;
+    }
+    
+    .testimonial-header img {
+        width: 48px;
+        height: 48px;
     }
 }
 

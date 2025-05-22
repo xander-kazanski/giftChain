@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
     "vite": "latest"
-  },
-  "devDependencies": {}
+  }
 }
