@@ -574,50 +574,65 @@ header>img {
     color: var(--red);
 }
 
-#customer{
-    padding: 4rem 1rem;
-    background: linear-gradient(to bottom, #F5F5F5, #fff);
-    display: flex;
-    flex-direction: column;
-
-    margin-bottom: 165px;
+#customer {
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, #F5F5F5 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-#customer>h2{
+#customer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, var(--light-red) 0%, transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#customer > h2 {
     color: var(--dark-red);
-    font-size: 40px;
+    font-size: 3rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    position: relative;
 }
 
 .testimonials {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    position: relative;
 }
 
 .testimonial-card {
     background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(143, 0, 2, 0.08);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     height: fit-content;
+    border: 1px solid rgba(143, 0, 2, 0.1);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(143, 0, 2, 0.1);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 16px 48px rgba(143, 0, 2, 0.12);
+    border-color: var(--medium-red);
 }
 
 .testimonial-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
 .testimonial-header img {
@@ -881,8 +896,34 @@ button:hover {
         margin: 1rem 0;
     }
 
+    .testimonials {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .testimonial-card {
+        margin: 0;
+        padding: 1.5rem;
+    }
+
+    .testimonial-header img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .testimonial-card blockquote {
+        font-size: 0.95rem;
+        padding-left: 0.5rem;
+    }
+
     #customer {
-        padding: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    #customer > h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
 
     footer {
